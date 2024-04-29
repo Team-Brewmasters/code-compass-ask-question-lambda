@@ -15,7 +15,7 @@ def call_chatgpt(prompt, files):
         model="gpt-4-turbo",
         messages=[{"role": "system", "content": '''You are a master engineer designed to analyze a repository and answer questions about that repository. The repo info will be given below.'''}, 
                   {"role": "system", "content": '''Respond in the format of a JSON object with the following structure:{
-    "answer": "(The answer to the question (Please respond in markdown format and make it as detailed as possible))",
+    "answer": "(The answer to the question (Please respond as detailed as possible))",
     "confidence": "(Your confidence level in the answer (High, Medium, Low))"
 }'''},
       {"role": "user", "content": "Repo:" + str(files)},
