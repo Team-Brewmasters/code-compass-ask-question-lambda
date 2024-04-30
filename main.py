@@ -33,8 +33,3 @@ def lambda_handler(event, context):
                 },
         }
     
-# event = {
-#     "githubURL": "https://www.github.com/Team-Brewmasters/code-compass-summary-lambda"
-# }
-
-# lambda_handler(event, None)
