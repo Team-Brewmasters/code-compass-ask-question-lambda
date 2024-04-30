@@ -6,13 +6,16 @@ class DynamoCacheService:
         self.table = self.dynamodb.Table(table_name)
 
     def put_question(self, question, repo, answer):
-        self.table.put_item(
-            Item={
-                'question': question,
-                'repo': repo,
-                'answer': answer
-            }
-        )
+        try: 
+            self.table.put_item(
+                Item={
+                    'question': question,
+                    'repo': repo,
+                    'answer': answer
+                }
+            )
+        except Exception as e:
+            print(f"Error: {e}")
 
     def get_question(self, question, repo):
         response = self.table.get_item(
