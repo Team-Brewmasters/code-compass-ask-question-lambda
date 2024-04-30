@@ -16,7 +16,7 @@ def lambda_handler(event, context):
 
         dynamo_rk = f"{username}{repo_name}"
 
-        dynamo_cache_service = DynamoCacheService()
+        dynamo_cache_service = DynamoCacheService('questions')
 
         cache_data = dynamo_cache_service.get_question(question, dynamo_rk)
 
