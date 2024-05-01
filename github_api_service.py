@@ -11,7 +11,8 @@ def get_repo_file_contents(repo_url, path=''):
     
     # Send a GET request to the GitHub API
     response = requests.get(api_url)
-    
+    file_names = []
+
     # Check if the request was successful
     if response.status_code == 200:
         file_contents = []
@@ -22,7 +23,7 @@ def get_repo_file_contents(repo_url, path=''):
                 file_name = item['name']
                 if file_name not in ignore_list:
                     file_url = item['download_url']
-                    
+                    file_names.append(file_name)
                     # Send a GET request to download the file contents
                     file_response = requests.get(file_url)
                     
@@ -39,6 +40,7 @@ def get_repo_file_contents(repo_url, path=''):
                 dir_path = f"{path}/{item['name']}"
                 file_contents.extend(get_repo_file_contents(repo_url, dir_path))
         
+        print(f"Files in {path}: {file_names}")
         return file_contents
     else:
         print(f"Error: {response.status_code} - {response.text}")
