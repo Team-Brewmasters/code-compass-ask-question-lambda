@@ -8,7 +8,7 @@ ignore_list = [
     'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', 'PULL_REQUEST_TEMPLATE.md', 
     'ISSUE_TEMPLATE.md', '.github', '.gitattributes', '.editorconfig', 
     '.eslintrc.js', '.prettierrc.js', '.prettierignore', '.vscode', '.travis.yml', 
-    '.gitlab-ci.yml', '.circleci'
+    '.gitlab-ci.yml', '.circleci', 'dist', 'build', 'out', 'coverage', 'e2e',
 ]
 
 def get_repo_file_contents(repo_url, path=''):
